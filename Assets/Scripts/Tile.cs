@@ -11,8 +11,9 @@ public class Tile : MonoBehaviour
 
     internal void Build(GameObject prefab)
     {
-        var bld = Instantiate(prefab, transform);
-        bld.transform.localPosition = Vector3.zero;
+        // Vytvoøí prefab na pozici støedu políèka
+        Vector3 centerPosition = transform.position + new Vector3(1f, 0.2f, 1f);
+        var bld = Instantiate(prefab, centerPosition, Quaternion.identity, transform);
         TileData.isOccupied = true;
     }
 
